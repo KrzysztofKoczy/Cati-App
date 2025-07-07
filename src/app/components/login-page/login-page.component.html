@@ -1,1 +1,56 @@
-<p>login-page works!</p>
+<div class="login-container">
+  <div class="login-card">
+        <!-- add Cat icon -->
+      
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <label for="username">Email Address</label>
+        <div class="input-container">
+          <!-- add email icon -->
+          <input placeholder="Enter your email address"
+                id="username"
+                type="email" 
+                formControlName="username"
+                [class.error]="isFieldInvalid('username')">
+        </div>
+        @if (isFieldInvalid('username')) {
+          <div class="error-message">
+            {{ getFieldErrorMessage('username') }}
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-container">
+          <!-- ass pasword icon -->
+          <input id="password"
+                placeholder="Enter your password"
+                type="password" 
+                formControlName="password"
+                [class.error]="isFieldInvalid('password')">
+        </div>
+        @if (isFieldInvalid('password')) {
+          <div class="error-message">
+            {{ getFieldErrorMessage('password') }}
+          </div>
+        }
+      </div>
+
+      <div class="button-group">
+        <button class="login-btn" type="submit" [disabled]="loginForm.invalid">
+          Sign In
+        </button>
+        <button class="demo-btn" type="button" (click)="fillDemoUser()">
+          Try Demo
+        </button>
+      </div>
+
+      @if (loginError) {
+        <div class="error-message main-error">
+          {{ loginError }}
+        </div>
+      }
+    </form>
+  </div>
+</div>
