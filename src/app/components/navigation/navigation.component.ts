@@ -1,9 +1,8 @@
-import { Component, inject, output, input, ElementRef, HostListener } from "@angular/core"
+import { Component, inject, output, input } from "@angular/core"
 import { CommonModule } from "@angular/common"
-import { FavoritesService } from "../../services/favorities.service"
 import { IconComponent } from "../icon/icon.component";
-
-export type TabType = "facts" | "favorites"
+import { TabType } from "../model/type";
+import { FavoritesService } from "../../services/favorites.service";
 
 @Component({
   selector: "app-navigation",
@@ -19,14 +18,14 @@ export class NavigationComponent {
 
   tabChange = output<TabType>();
   logout = output<void>();
-
+  
   switchTab(tab: TabType): void {
     if (tab !== this.activeTab()) {
-      this.tabChange.emit(tab)
+      this.tabChange.emit(tab);
     }
   }
-
+  
   onLogout(): void {
-    this.logout.emit()
+    this.logout.emit();
   }
 }

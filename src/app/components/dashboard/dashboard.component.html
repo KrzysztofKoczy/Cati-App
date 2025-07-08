@@ -1,24 +1,29 @@
-<div class="cat-facts-container">
-    <app-navigation [activeTab]="activeTab()"
-                    [factsCount]="catFacts().length"
-                    (tabChange)="switchTab($event)"
-                    (logout)="logout()"/>
+<div class="section-header">
+  <h2>Amazing Cat Facts</h2>
+  <p>Scroll down to discover more fascinating facts about our feline friends!</p>
+</div>
+        
+<div class="facts-grid">
+  @for (fact of catFacts(); track $index; ){
+    <app-card [fact]="fact"/>
+  }
+</div>
 
-    <main class="main-content" role="main">
-       @if (activeTab() === 'facts') {
-        <div class="facts-tab"
-            role="tabpanel"
-            id="facts-panel">
-          
-          <div class="facts-grid" role="list">
+<div appInfiniteScroll
+      class="loading-trigger" 
+      (scrolled)="loadCatFacts()">
 
-            <app-cat-fact-card  *ngFor="let fact of catFacts(); trackBy: trackByFact; let i = index"
-                                [fact]="fact"
-                                [style.animation-delay]="(i * 0.1) + 's'"
-                                role="listitem"/>
-          </div>
+  @if (catFactsService.isLoading()) {
+    <div class="loading" aria-live="polite">
+      <div class="loading-animation">
+        <app-icon class="loading-cat" name="cat"/>
+        <div class="loading-dots">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-       }
-  
-    </main>
-  </div>
+      </div>
+      <p>Finding more amazing cat facts... </p>
+    </div>
+  }
+</div>

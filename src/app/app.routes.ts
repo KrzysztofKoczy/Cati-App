@@ -1,14 +1,17 @@
 import { Routes } from "@angular/router"
 import { AuthGuard } from "./guards/authentication.guard"
-import { LoginComponent } from "./components/login-page/login-page.component"
-import { CatFactsComponent } from "./components/dashboard/dashboard.component"
+import { LoginPageComponent } from "./components/login-page/login-page.component"
+import { DashboardComponent } from "./components/dashboard/dashboard.component"
+import { FavoritesComponent } from "./components/favorites/favorites.component"
 
 export const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
 
-  { path: "login", component: LoginComponent },
+  { path: "login", component: LoginPageComponent },
 
-  { path: "cat-facts", component: CatFactsComponent, canActivate: [AuthGuard] },
+  { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
+
+  { path: "favorites", component: FavoritesComponent, canActivate: [AuthGuard] },
 
   { path: "**", redirectTo: "/login" },
 ]
