@@ -1,0 +1,235 @@
+.favorites-container {
+  width: 100%;
+  min-height: 60vh;
+}
+
+.favorites-header {
+  margin-bottom: 40px;
+  animation: floatUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.header-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+}
+
+.star-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.star-icon:hover {
+  animation: gentleWiggle 3s ease-in-out infinite;
+}
+
+.header-text {
+  flex: 1;
+  min-width: 200px;
+}
+
+.header-text h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.header-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 260px;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  border-radius: 4px;
+}
+
+.header-text p {
+  font-size: 18px;
+  margin-top: 16px;
+  color: var(--text-secondary);
+}
+
+.favorites-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg);
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px var(--shadow-light);
+  border: 2px solid var(--secondary-bg);
+}
+
+.stat-number {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--accent-coral);
+  line-height: 1;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+}
+
+.clear-btn {
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  box-shadow: 0 4px 16px rgba(255, 107, 71, 0.3);
+  background: linear-gradient(135deg, var(--accent-coral), #e55a3a);
+}
+
+.clear-btn:hover {
+  background: linear-gradient(135deg, #e55a3a, #d44926);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 71, 0.4);
+}
+
+.clear-icon {
+  width: 24px;
+}
+
+.favorites-content {
+  animation: floatUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.empty-state {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: var(--text-primary);
+  padding: 60px 20px;
+}
+
+.empty-illustration {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.empty-sparkles {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.sparkle {
+  animation: gentleBounce 2s ease-in-out infinite;
+}
+
+.sparkle:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.sparkle:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.empty-state h3 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.empty-state p {
+  font-size: 18px;
+  opacity: 0.8;
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+  max-width: 500px;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .header-icon {
+    display: none;
+  }
+
+  .favorites-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .header-content {
+    text-align: center;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .favorites-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header-text h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .empty-state {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-text h2 {
+    font-size: 28px;
+  }
+
+  .header-text p {
+    font-size: 16px;
+  }
+
+  .empty-state h3 {
+    font-size: 20px;
+  }
+
+  .empty-state p {
+    font-size: 16px;
+  }
+
+  .favorites-stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

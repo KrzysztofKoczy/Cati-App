@@ -1,0 +1,52 @@
+<div class="favorites-container">
+  <div class="favorites-header">
+    <div class="header-content">
+      <div class="header-icon">
+        <app-icon class="star-icon" name="starFilled"/>
+      </div>
+      <div class="header-text">
+        <h2>Your Favorite Cat Facts</h2>
+        <p>Your personal collection of amazing feline discoveries</p>
+      </div>
+      @if (favoritesService.favoritesCount > 0) {
+        <div class="favorites-stats">
+          <div class="stat-item">
+            <span class="stat-number">{{ favoritesService.favoritesCount }}</span>
+            <span class="stat-label">{{ favoritesService.favoritesCount === 1 ? 'Favorite' : 'Favorites' }}</span>
+          </div>
+          <button class="clear-btn"
+            (click)="clearAllFavorites()">
+            <app-icon class="clear-icon" name="trash"/>
+            <span>Clear All</span>
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="favorites-content">
+    @if (favoritesService.favoritesCount === 0) {
+      <div  class="empty-state">
+        <div class="empty-illustration">
+          <div class="empty-sparkles">
+            <app-icon class="sparkle" name="starFilled"/>
+            <app-icon class="sparkle" name="starFilled"/>
+            <app-icon class="sparkle" name="starFilled"/>
+          </div>
+        </div>
+        <h3>No favorites yet!</h3>
+        <p>Start building your collection by clicking the star button on any cat fact that catches your eye.</p>
+      </div>
+    }
+
+    @if (favoritesService.favoritesCount > 0) {
+      <div class="favorites-grid">
+        <!-- @for (favourite of favoritesService.favorites(), track: $index) { -->
+          <app-card *ngFor="let favorite of favoritesService.favorites(); let i = index" 
+          [fact]="favorite.fact"/>
+        <!-- } -->
+      </div>
+    }
+
+  </div>
+</div>
