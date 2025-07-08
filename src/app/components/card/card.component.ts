@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject, input, Input } from "@angular/core"
+import { CommonModule } from "@angular/common"
 
 @Component({
-  selector: 'app-card',
-  imports: [],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  selector: "app-cat-fact-card",
+  imports: [CommonModule],
+  templateUrl: "./card.component.html",
+  styleUrls: ["./card.component.scss"],
 })
-export class CardComponent {
-
+export class CatFactCardComponent {
+  fact = input.required<string>();
 }
