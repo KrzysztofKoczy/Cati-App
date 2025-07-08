@@ -1,1 +1,21 @@
-<p>navigation works!</p>
+<header class="header">
+    <div class="header-content">
+      <div class="header-actions">
+        <nav class="tabs" role="tablist">
+          <button class="tab-btn" 
+                [class.active]="activeTab() === 'facts'"
+                (click)="switchTab('facts')"
+                role="tab"
+                [attr.aria-selected]="activeTab() === 'facts'"
+                [attr.aria-controls]="'facts-panel'">
+            <span class="tab-text">All Facts</span>
+            <span class="tab-count">{{ factsCount() }}</span>
+          </button>
+        </nav>
+        
+        <button (click)="onLogout()" class="logout-btn" title="Sign out">
+          <span class="logout-text">Logout</span>
+        </button>
+      </div>
+    </div>
+  </header>
