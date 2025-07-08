@@ -1,21 +1,39 @@
 <header class="header">
-    <div class="header-content">
-      <div class="header-actions">
-        <nav class="tabs" role="tablist">
-          <button class="tab-btn" 
-                [class.active]="activeTab() === 'facts'"
-                (click)="switchTab('facts')"
-                role="tab"
-                [attr.aria-selected]="activeTab() === 'facts'"
-                [attr.aria-controls]="'facts-panel'">
-            <span class="tab-text">All Facts</span>
-            <span class="tab-count">{{ factsCount() }}</span>
-          </button>
-        </nav>
-        
-        <button (click)="onLogout()" class="logout-btn" title="Sign out">
-          <span class="logout-text">Logout</span>
-        </button>
+  <div class="header-content">
+    <div class="header-brand">
+      <div class="brand-icon">
+        <app-icon class="brand-emoji" name="cat"/>
+      </div>
+      <div class="brand-text">
+        <h1>Cat Facts</h1>
+        <p>Discover amazing secrets</p>
       </div>
     </div>
-  </header>
+      
+    <div class="header-actions">
+      <nav class="tabs" role="tablist">
+        <button class="tab-btn"
+                role="tab" 
+                [class.active]="activeTab() === 'facts'"
+                (click)="switchTab('facts')">
+          <app-icon name="cards"/>
+          <span class="tab-text">All Facts</span>
+          <span class="tab-count">{{ factsCount() }}</span>
+        </button>
+        <button class="tab-btn"
+                role="tab" 
+               [class.active]="activeTab() === 'favorites'"
+               (click)="switchTab('favorites')">
+          <app-icon name="starFilled"/>
+          <span class="tab-text">Favorites</span>
+          <span class="tab-count favorites-count">{{ favoritesService.favoritesCount }}</span>
+        </button>
+      </nav>
+        
+      <button class="logout-btn" title="Sign out" (click)="onLogout()">
+        <app-icon name="logout"/>
+        <span class="logout-text">Logout</span>
+      </button>
+    </div>
+  </div>
+</header>
