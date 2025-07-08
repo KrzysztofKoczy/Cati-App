@@ -1,11 +1,34 @@
-<div #cardElement
-    class="cat-fact-card">
+<div class="card" 
+    [class.favorited]="favoritesService.isFavorite(fact())">
+  <div class="card-decoration">
+    <div class="decoration-dots">
+      <span class="dot dot-1"></span>
+      <span class="dot dot-2"></span>
+      <span class="dot dot-3"></span>
+    </div>
+    <button class="favorite-btn" 
+            [class.favorited]="favoritesService.isFavorite(fact())"
+            [title]="favoritesService.isFavorite(fact()) ? 'Remove from favorites' : 'Add to favorites'"
+            (click)="toggleFavorite()">
+      <app-icon [name]="favoritesService.isFavorite(fact()) ?  'star' : 'starFilled'"/>
+    </button>
+  </div>
 
   <div class="card-content">
-    <div class="card-text">
-      <h3 class="card-title">Cat Fact</h3>
-      <p class="card-fact">{{ fact() }}</p>
+    <div class="card-icon">
+      <app-icon class="cat-icon" name="cat"/>
+    </div>
+    <div>
+      <h4 class="card-title">CAT FACT</h4>
+      <p class="card-text">{{ fact() }}</p>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <div class="paw-trail">
+      <app-icon class="paw" name="pawFilled"/>
+      <app-icon class="paw" name="pawFilled"/>
+      <app-icon class="paw" name="pawFilled"/>
     </div>
   </div>
 </div>
-
