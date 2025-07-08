@@ -1,1 +1,24 @@
-<p>dashboard works!</p>
+<div class="cat-facts-container">
+    <app-navigation [activeTab]="activeTab()"
+                    [factsCount]="catFacts().length"
+                    (tabChange)="switchTab($event)"
+                    (logout)="logout()"/>
+
+    <main class="main-content" role="main">
+       @if (activeTab() === 'facts') {
+        <div class="facts-tab"
+            role="tabpanel"
+            id="facts-panel">
+          
+          <div class="facts-grid" role="list">
+
+            <app-cat-fact-card  *ngFor="let fact of catFacts(); trackBy: trackByFact; let i = index"
+                                [fact]="fact"
+                                [style.animation-delay]="(i * 0.1) + 's'"
+                                role="listitem"/>
+          </div>
+        </div>
+       }
+  
+    </main>
+  </div>
