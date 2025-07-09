@@ -1,59 +1,73 @@
 # CatiApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Projekt stworzony przy użyciu [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0 
 
-## Development server
+Aplikacja do zarządzania ocenami, umożliwiająca definiowanie progów procentowych i przypisywanie im ocen opisowych. 
 
-To start a local development server, run:
+## 🚀 Live Demo
 
+Sprawdź aplikację live: [Cat Facts App Demo](https://krzysztofkoczy.github.io/Cati-App/)
+
+## Funkcje
+
+### **Autoryzacja i Bezpieczeństwo**
+
+- 🔑 System logowania z walidacją
+- 👤 Konto demo dla szybkiego dostępu
+- 🛡️ Ochrona endpointów, dostępnych dopiero po zalogowaniu (Route Guards)
+
+### **Zarządzanie Faktami**
+
+- 🐾 Ładowanie kolejnych ciekawostek na scroll
+- ⭐ System ulubionych z lokalnym zapisem
+- 🔄 Automatyczne usuwanie duplikatów
+- 📊 Licznik załadowanych faktów
+
+### **Zaawansowane Funkcje**
+
+- 🚀 Infinite scroll z Intersection Observer
+- 📡 Integracja z zewnętrznym API (MeowFacts)
+- 🎯 Optymalizacja wydajności z OnPush
+- 🎪 Micro-interactions i animacje CSS
+🌊 **Reaktywne programowanie z RxJS** - zaawansowane operatory do streamowania danych:
+
+- `repeat()` - ciągłe pobieranie faktów z API
+- `filter()` & `distinct()` - eliminacja duplikatów w czasie rzeczywistym
+- `take()` & `toArray()` - kontrola ilości pobieranych faktów
+- `tap()` - side effects dla cache management
+- `catchError()` & `finalize()` - obsługa błędów i cleanup
+- `map()` - transformacja danych API response
+
+- Zarządzanie ocenami z progami procentowymi
+- Definiowanie ocen symbolicznych i opisowych
+- Walidacja formularzy
+- Responsywny interfejs
+
+## 🛠️ Technologie
+
+- Angular CLI 19.2.0
+- TypeScript 5.7.2
+- RxJS
+- SCSS
+- Angular Signals
+- Standalone Components
+- OnPush Change Detection
+- Reactive Forms
+- Route Guards
+
+## 🔧 Instalacja
+
+1. Zainstaluj zależności:
+```bash
+npm install
+```
+
+2. Uruchom aplikację:
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+3. Otwórz aplikację w przeglądarce:
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+http://localhost:4200
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
