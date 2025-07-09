@@ -4,7 +4,7 @@ import { CommonModule } from "@angular/common"
 import { NavigationComponent } from "./components/navigation/navigation.component"
 import { NavigationService } from "./services/navigation.service"
 import { AuthenticationService } from "./services/authentication.service"
-import { TabType } from "./components/model/type"
+import { TabType } from "./model/type"
 
 @Component({
   selector: "app-root",

@@ -1,7 +1,7 @@
 import { Component, inject, output, input, ChangeDetectionStrategy } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { IconComponent } from "../icon/icon.component";
-import { TabType } from "../model/type";
+import { TabType } from "../../model/type";
 import { FavoritesService } from "../../services/favorites.service";
 
 @Component({

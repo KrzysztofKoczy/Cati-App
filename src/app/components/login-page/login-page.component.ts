@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angula
 import { CommonModule } from "@angular/common"
 import { AuthenticationService } from "../../services/authentication.service"
 import { IconComponent } from "../icon/icon.component";
-import { emailRegex } from "../model/const";
+import { emailRegex } from "../../model/const";
 
 @Component({
   selector: "app-login",
