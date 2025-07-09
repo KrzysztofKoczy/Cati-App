@@ -1,29 +1,26 @@
-import { Component, inject } from "@angular/core"
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core"
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms"
 import { CommonModule } from "@angular/common"
 import { AuthenticationService } from "../../services/authentication.service"
-
-export const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+import { IconComponent } from "../icon/icon.component";
+import { emailRegex } from "../model/const";
 
 @Component({
   selector: "app-login",
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, IconComponent],
   templateUrl: "./login-page.component.html",
   styleUrls: ["./login-page.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginComponent {
+export class LoginPageComponent {
   private formBuilder = inject(FormBuilder);
   private authenticationService = inject(AuthenticationService);
 
   loginForm: FormGroup;
-  loginError = "";
 
   constructor() {
     this.loginForm = this.formBuilder.group({
-      username: [
-        "",
-        [Validators.required, Validators.email, Validators.pattern(emailRegex)],
-      ],
+      username: ["", [Validators.required, Validators.email, Validators.pattern(emailRegex)]],
       password: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(256)]],
     })
   }
@@ -34,7 +31,7 @@ export class LoginComponent {
       const success = this.authenticationService.login(username, password);
 
       if (!success) {
-        this.loginError = "Invalid credentials. Please try again.";
+        window.alert("Invalid credentials. Please try again.");
       }
     } else {
       this.loginForm.markAllAsTouched();
@@ -45,7 +42,6 @@ export class LoginComponent {
     const demoCredentials = this.authenticationService.getDemoCredentials();
     
     this.loginForm.patchValue(demoCredentials);
-    this.loginError = "";
   }
 
   isFieldInvalid(fieldName: string): boolean {

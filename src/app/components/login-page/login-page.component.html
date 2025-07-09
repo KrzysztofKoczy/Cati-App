@@ -1,12 +1,15 @@
 <div class="login-container">
   <div class="login-card">
-        <!-- add Cat icon -->
-      
+    <div class="login-header">
+      <app-icon class="header-icon" name="cat"/>
+      <h2>Welcome Back!</h2>
+    </div>
+        
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
       <div class="form-group">
         <label for="username">Email Address</label>
         <div class="input-container">
-          <!-- add email icon -->
+          <app-icon class="input-icon" name="mail"/>
           <input placeholder="Enter your email address"
                 id="username"
                 type="email" 
@@ -23,7 +26,7 @@
       <div class="form-group">
         <label for="password">Password</label>
         <div class="input-container">
-          <!-- ass pasword icon -->
+          <app-icon class="input-icon" name="lock"/>
           <input id="password"
                 placeholder="Enter your password"
                 type="password" 
@@ -39,18 +42,12 @@
 
       <div class="button-group">
         <button class="login-btn" type="submit" [disabled]="loginForm.invalid">
-          Sign In
+          <span>Sign In</span>
         </button>
         <button class="demo-btn" type="button" (click)="fillDemoUser()">
-          Try Demo
+          <span>Try Demo</span>
         </button>
       </div>
-
-      @if (loginError) {
-        <div class="error-message main-error">
-          {{ loginError }}
-        </div>
-      }
     </form>
   </div>
 </div>
