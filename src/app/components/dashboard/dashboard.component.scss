@@ -7,7 +7,7 @@
 .section-header h2 {
   font-size: 36px;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--Gray-800);
   margin-bottom: 12px;
   position: relative;
 }
@@ -20,7 +20,7 @@
   transform: translateX(-50%);
   width: 260px;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent-coral), var(--accent-teal));
+  background: linear-gradient(90deg, var(--Red-500), var(--Teal-500));
   border-radius: 4px;
 }
 
@@ -29,7 +29,7 @@
   justify-content: center;
   font-size: 18px;
   margin-top: 16px;
-  color: var(--text-secondary);
+  color: var(--Gray-500);
 }
 
 .facts-grid {
@@ -76,7 +76,7 @@
 
 .loading {
   text-align: center;
-  color: var(--text-primary);
+  color: var(--Gray-800);
 }
 
 .loading-animation {
@@ -100,7 +100,7 @@
 .loading-dots span {
   width: 8px;
   height: 8px;
-  background: var(--accent-coral);
+  background: var(--Red-500);
   border-radius: 50%;
   animation: gentleBounce 1.4s ease-in-out infinite;
 }

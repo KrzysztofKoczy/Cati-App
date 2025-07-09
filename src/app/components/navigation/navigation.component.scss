@@ -5,10 +5,10 @@
 }
 
 .header {
-  background: var(--card-bg);
+  background: var(--White);
   box-shadow: 0 4px 20px var(--shadow-light);
   padding: 24px 0;
-  border-bottom: 3px solid var(--accent-coral);
+  border-bottom: 3px solid var(--Red-500);
 }
 
 .header-content {
@@ -29,7 +29,7 @@
 .brand-icon {
   width: 52px;
   height: 52px;
-  background: linear-gradient(135deg, var(--accent-coral), #e55a3a);
+  background: linear-gradient(135deg, var(--Red-300), var(--Red-800));
   border-radius: 18px;
   display: flex;
   align-items: center;
@@ -55,13 +55,13 @@
 .brand-text h1 {
   font-size: 28px;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--Gray-800);
   line-height: 1.2;
 }
 
 .brand-text p {
   font-size: 12px;
-  color: var(--text-secondary);
+  color: var(--Gray-500);
   font-weight: 500;
 }
 
@@ -73,7 +73,7 @@
 
 .tabs {
   display: flex;
-  background: var(--secondary-bg);
+  background: var(--Gray-200);
   border-radius: var(--border-radius);
   gap: 6px;
   padding: 6px;
@@ -81,7 +81,7 @@
 
 .tab-btn {
   background: transparent;
-  color: var(--text-secondary);
+  color: var(--Gray-500);
   border: none;
   padding: 6px 20px;
   border-radius: 14px;
@@ -95,20 +95,20 @@
 }
 
 .tab-btn.active {
-  background: var(--card-bg);
-  color: var(--text-primary);
+  background: var(--White);
+  color: var(--Gray-800);
   box-shadow: 0 4px 16px var(--shadow-light);
   transform: translateY(-1px);
 }
 
 .tab-btn:hover:not(.active) {
   background: rgba(255, 255, 255, 0.5);
-  color: var(--text-primary);
+  color: var(--Gray-800);
   transform: translateY(-1px);
 }
 
 .tab-btn:focus {
-  outline: 2px solid var(--accent-teal);
+  outline: 2px solid var(--Teal-500);
   outline-offset: 2px;
 }
 
@@ -120,7 +120,7 @@
 .tab-count {
   display: flex;
   justify-content: center;
-  background: var(--accent-coral);
+  background: var(--Red-500);
   color: white;
   padding: 4px 8px;
   border-radius: 8px;
@@ -135,13 +135,13 @@
 }
 
 .favorites-count {
-  background: linear-gradient(135deg, #ffd700, #ffed4e);
-  color: #8b4513;
+  background: linear-gradient(135deg, var(--Yellow-500), var(--Yellow-300));
+  color: var(--Red-900);
   box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
 }
 
 .logout-btn {
-  background: linear-gradient(135deg, var(--accent-coral), #e55a3a);
+  background: linear-gradient(135deg, var(--Red-500), var(--Red-600));
   color: white;
   border: none;
   padding: 12px 20px;
@@ -173,13 +173,13 @@
 }
 
 .logout-btn:hover {
-  background: linear-gradient(135deg, #e55a3a, #d44926);
+  background: linear-gradient(135deg, var(--Red-600), var(--Red-800));
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 107, 71, 0.4);
 }
 
 .logout-btn:focus {
-  outline: 2px solid var(--accent-teal);
+  outline: 2px solid var(--Teal-500);
   outline-offset: 2px;
 }
 

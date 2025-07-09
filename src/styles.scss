@@ -1,1 +1,142 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --White: #ffffff;
+  --Black: #000000;
+
+  --Gray-50:   #f8f9fa;
+  --Gray-100:  #f5f1eb; 
+  --Gray-200:  #e8ddd4;
+  --Gray-300:  #d3c6bb; 
+  --Gray-500:  #7f8c8d;
+  --Gray-800:  #2c3e50;
+
+  --Blue-50:  #eaf6fa;
+  --Blue-100: #b6e6f3;
+  --Blue-500: #45b7d1;
+  --Blue-600: #2296ab;
+
+  --Red-100: #ffd6cc;
+  --Red-300: #ff822f;
+  --Red-500: #ff6b47;
+  --Red-600: #e55a3a;
+  --Red-700: #d94a1e;
+  --Red-800: #d44926;
+  --Red-900: #8b4513;
+
+  --Teal-100: #b8f6ef;
+  --Teal-500: #4ecdc4;
+  --Teal-700: #269b91;
+
+  --Yellow-100: #fff9e6;
+  --Yellow-200: #fff4b8;
+  --Yellow-300: #ffed4e;
+  --Yellow-500: #ffd700;
+  --Yellow-700: #e6b800;
+  --Yellow-900: #b38f00;
+
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --shadow-medium: rgba(0, 0, 0, 0.12);
+  --border-radius: 20px;
+  --border-radius-large: 30px;
+}
+
+body {
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--primary-bg);
+  min-height: 100dvh;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-bg);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-coral);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--Red-600);
+}
+
+@keyframes swimUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gentleBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes gentleWiggle {
+  0%,
+  7% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-8deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  30% {
+    transform: rotate(3deg);
+  }
+  35% {
+    transform: rotate(-2deg);
+  }
+  40%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

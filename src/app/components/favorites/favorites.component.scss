@@ -18,7 +18,7 @@
 .header-icon {
   width: 52px;
   height: 52px;
-  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  background: linear-gradient(135deg, var(--Yellow-500), var(--Yellow-300));
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@
 .header-text h2 {
   font-size: 36px;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--Gray-800);
   margin-bottom: 12px;
   position: relative;
 }
@@ -56,14 +56,14 @@
   left: 0;
   width: 260px;
   height: 4px;
-  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  background: linear-gradient(90deg, var(--Yellow-500), var(--Yellow-300));
   border-radius: 4px;
 }
 
 .header-text p {
   font-size: 18px;
   margin-top: 16px;
-  color: var(--text-secondary);
+  color: var(--Gray-500);
 }
 
 .favorites-stats {
@@ -76,23 +76,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--card-bg);
+  background: var(--White);
   gap: 8px;
   padding: 12px 18px;
   border-radius: 16px;
   box-shadow: 0 4px 16px var(--shadow-light);
-  border: 2px solid var(--secondary-bg);
+  border: 2px solid var(--Gray-200);
 }
 
 .stat-number {
   font-size: 26px;
   font-weight: 800;
-  color: var(--accent-coral);
+  color: var(--Red-500);
   line-height: 1;
 }
 
 .stat-label {
-  color: var(--text-secondary);
+  color: var(--Gray-500);
 }
 
 .clear-btn {
@@ -108,11 +108,11 @@
   gap: 8px;
   font-family: inherit;
   box-shadow: 0 4px 16px rgba(255, 107, 71, 0.3);
-  background: linear-gradient(135deg, var(--accent-coral), #e55a3a);
+  background: linear-gradient(135deg, var(--Red-500), var(--Red-600));
 }
 
 .clear-btn:hover {
-  background: linear-gradient(135deg, #e55a3a, #d44926);
+  background: linear-gradient(135deg, var(--Red-600), var(--Red-800));
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 107, 71, 0.4);
 }
@@ -133,7 +133,7 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  color: var(--text-primary);
+  color: var(--Gray-800);
   padding: 60px 20px;
 }
 
@@ -163,14 +163,14 @@
 .empty-state h3 {
   font-size: 32px;
   margin-bottom: 16px;
-  color: var(--text-primary);
+  color: var(--Gray-800);
 }
 
 .empty-state p {
   font-size: 18px;
   opacity: 0.8;
   margin-bottom: 24px;
-  color: var(--text-secondary);
+  color: var(--Gray-500);
   max-width: 500px;
 }
 

@@ -4,11 +4,10 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  background: var(--card-bg);
+  background: var(--White);
   border-radius: var(--border-radius);
   padding: 24px;
   box-shadow: 0 8px 32px var(--shadow-light);
-  // cursor: pointer;
   overflow: hidden;
   border: 2px solid transparent;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -22,26 +21,18 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent-coral), var(--accent-teal));
+  background: linear-gradient(90deg, var(--Red-500), var(--Teal-500));
 }
 
 .card.favorited {
-  background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
-  border-color: var(--accent-coral);
+  background: linear-gradient(135deg, var(--Yellow-100) 0%, var(--White) 100%);
+  border-color: var(--Red-500);
 }
 
 .card.favorited::before {
-  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  background: linear-gradient(90deg, var(--Yellow-500), var(--Yellow-300));
   height: 6px;
 }
-
-// .card:hover {
-  // box-shadow: 0 16px 48px var(--shadow-medium);
-// }
-
-// .card.favorited:hover {
-  // box-shadow: 0 20px 60px rgba(255, 107, 71, 0.25);
-// }
 
 .card-decoration {
   display: flex;
@@ -61,9 +52,9 @@
   opacity: 0.6;
 }
 
-.dot-1 { background: var(--accent-coral); }
-.dot-2 { background: var(--accent-teal); }
-.dot-3 { background: var(--accent-blue); }
+.dot-1 { background: var(--Red-500); }
+.dot-2 { background: var(--Teal-500); }
+.dot-3 { background: var(--Blue-500); }
 
 .favorite-btn {
   display: flex;
@@ -73,24 +64,24 @@
   height: 36px;
   border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--text-secondary);
+  background: var(--White);
+  color: var(--Gray-500);
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px var(--shadow-light);
 }
 
 .favorite-btn:hover {
-  background: var(--accent-coral);
+  background: var(--Red-500);
   color: white;
   transform: scale(1.1);
 }
 
 .favorite-btn.favorited {
-  color: #8b4513;
+  color: var(--Red-900);
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
-  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  background: linear-gradient(135deg, var(--Yellow-500), var(--Yellow-300));
 }
 
 .favorite-btn.favorited:hover {
@@ -108,7 +99,7 @@
   flex-shrink: 0;
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
+  background: linear-gradient(135deg, var(--Teal-100), var(--Blue-600));
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -127,14 +118,14 @@
 }
 
 .card-title {
-  color: var(--accent-blue);
+  color: var(--Blue-500);
   margin-bottom: 8px;
 }
 
 .card-text {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--text-primary);
+  color: var(--Gray-800);
 }
 
 .card-footer {
