@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, input, Input } from "@angular/core"
+import { ChangeDetectionStrategy, Component, inject, input } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { IconComponent } from "../icon/icon.component";
 import { FavoritesService } from "../../services/favorites.service";

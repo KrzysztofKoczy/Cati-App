@@ -42,8 +42,8 @@
     @if (favoritesService.favoritesCount > 0) {
       <div class="favorites-grid">
         <!-- @for (favourite of favoritesService.favorites(), track: $index) { -->
-          <app-card *ngFor="let favorite of favoritesService.favorites(); let i = index" 
-          [fact]="favorite.fact"/>
+          <app-card *ngFor="let favorite of favoritesService.favorites; let i = index" 
+          [fact]="favorite"/>
         <!-- } -->
       </div>
     }
