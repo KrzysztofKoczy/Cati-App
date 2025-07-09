@@ -59,4 +59,8 @@ export class CatFactsService {
       })
     );
   }
+
+  clearUsedFacts() {
+    this.usedFacts.clear();
+  }
 }

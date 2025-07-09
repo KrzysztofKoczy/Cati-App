@@ -27,6 +27,7 @@ export class FactsDashboardComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
+    this.catFactsService.clearUsedFacts();
     this.destroy$.next();
   }
 
