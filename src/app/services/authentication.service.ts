@@ -7,37 +7,35 @@ import { Router } from "@angular/router"
 export class AuthenticationService {
   private router = inject(Router);
 
-  private isLoggedInSignal = signal(false);
+  isLoggedIn = signal(false);
 
   constructor() {
     const savedAuth = localStorage.getItem("isLoggedIn");
 
     if (savedAuth === "true") {
-      this.isLoggedInSignal.set(true);
+      this.isLoggedIn.set(true);
     }
   }
 
-  get isLoggedIn() {
-    return this.isLoggedInSignal.asReadonly();
+  get isLogged(): boolean {
+    return this.isLoggedIn();
   }
 
   login(username: string, password: string): boolean {
-    if (username.trim() && password.trim() && password.length >= 3 && password.length <= 256) {
-      this.isLoggedInSignal.set(true);
+      this.isLoggedIn.set(true);
 
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userEmail", username.trim());
+      // WARNING: Storing authentication state in localStorage is NOT secure and is only for demonstration purposes!
+      localStorage.setItem("isLoggedIn", "true"); // For demo only, not secure for production
+      localStorage.setItem("userEmail", username.trim()); // For demo only, not secure for production
 
-      this.router.navigate(["/cat-facts"]);
+      // TODO rename to facts view
+      this.router.navigate(["/dashboard"]);
 
       return true;
-    }
-
-    return false;
   }
 
   logout(): void {
-    this.isLoggedInSignal.set(false);
+    this.isLoggedIn.set(false);
 
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("userEmail");
@@ -47,12 +45,8 @@ export class AuthenticationService {
 
   getDemoCredentials() {
     return {
-      username: "demo@catfacts.com",
-      password: "demo123",
+      username: "demo@user.com",
+      password: "demoUser1234!",
     }
-  }
-
-  getCurrentUserEmail(): string | null {
-    return localStorage.getItem("userEmail");
   }
 }
