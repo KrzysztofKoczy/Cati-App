@@ -1,42 +1,59 @@
-import { Component, inject, OnInit, signal } from "@angular/core"
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { InfiniteScrollDirective } from "../../directives/infinite-scroll.directive"
 import { AuthenticationService } from "../../services/authentication.service"
 import { CardComponent } from "../card/card.component"
 import { CatFactsService } from "../../services/cat-facts.service"
 import { IconComponent } from "../icon/icon.component"
+import { Subject, takeUntil } from "rxjs"
+import { NavigationService } from "../../services/navigation.service"
 
 @Component({
   selector: "app-dashboard",
   imports: [CommonModule, CardComponent, InfiniteScrollDirective, IconComponent],
   templateUrl: "./dashboard.component.html",
   styleUrls: ["./dashboard.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit {
   catFactsService = inject(CatFactsService);
-  authenticationService = inject(AuthenticationService);
+  private navigationService = inject(NavigationService);
+  private authenticationService = inject(AuthenticationService);
 
   catFacts = signal<string[]>([]);
+  
+  private destroy$ = new Subject<void>();
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadInitialFacts();
   }
 
-  async loadCatFacts() {
-    if (!this.catFactsService.isLoading()) {
-      const newFacts = await this.catFactsService.loadCatFacts();
-
-      if (newFacts.length > 0) {
-        this.catFacts.update((current) => [...current, ...newFacts]);
-      }
-    }
+  ngOnDestroy(): void {
+    this.destroy$.next();
   }
 
-  private async loadInitialFacts() {
-    const initialFacts = await this.catFactsService.loadCatFacts();
-
-    if (initialFacts.length > 0) {
-      this.catFacts.set(initialFacts);
-    }
+  loadMoreFacts(): void {
+    console.log('wywołąne load cat facts')
+    this.catFactsService.loadCatFacts()
+      .pipe(
+        takeUntil(this.destroy$)
+      ).subscribe(newFacts => {
+        if (newFacts.length > 0) {
+          this.catFacts.update(currentFacts => [...currentFacts, ...newFacts]);
+          this.navigationService.setFactsCount(this.catFacts().length);
+        }
+      });
   }
+
+  private loadInitialFacts(): void {
+    this.catFactsService.loadCatFacts()
+      .pipe(
+        takeUntil(this.destroy$)
+      ).subscribe(initialFacts => {
+        if (initialFacts.length > 0) {
+          this.catFacts.set(initialFacts);
+          this.navigationService.setFactsCount(this.catFacts().length);
+        }
+      });
+    }
 }

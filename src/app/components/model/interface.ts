@@ -1,5 +1,6 @@
 export interface FavoriteFact {
-    id: string,
-    fact: string,
-    addedAt: Date
-  }
+  id: string,
+  fact: string,
+  addedAt: Date
+}
+

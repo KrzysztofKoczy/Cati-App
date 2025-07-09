@@ -1,4 +1,4 @@
-import { Component, inject, output, input } from "@angular/core"
+import { Component, inject, output, input, ChangeDetectionStrategy } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { IconComponent } from "../icon/icon.component";
 import { TabType } from "../model/type";
@@ -9,6 +9,7 @@ import { FavoritesService } from "../../services/favorites.service";
   imports: [CommonModule, IconComponent],
   templateUrl: "./navigation.component.html",
   styleUrls: ["./navigation.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationComponent {
   favoritesService = inject(FavoritesService);

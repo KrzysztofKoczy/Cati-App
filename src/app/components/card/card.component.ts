@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, input, Input } from "@angular/core"
 import { CommonModule } from "@angular/common"
-import { FavoritesService } from "../../services/favorities.service"
 import { IconComponent } from "../icon/icon.component";
+import { FavoritesService } from "../../services/favorites.service";
 
 @Component({
   selector: "app-card",

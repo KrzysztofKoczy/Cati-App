@@ -1,10 +1,13 @@
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 .header {
   background: var(--card-bg);
   box-shadow: 0 4px 20px var(--shadow-light);
   padding: 24px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
   border-bottom: 3px solid var(--accent-coral);
 }
 

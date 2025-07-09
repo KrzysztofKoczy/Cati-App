@@ -4,16 +4,16 @@
 </div>
         
 <div class="facts-grid">
-  @for (fact of catFacts(); track $index; ){
+  @for (fact of catFacts(); track fact){
     <app-card [fact]="fact"/>
   }
 </div>
 
 <div appInfiniteScroll
       class="loading-trigger" 
-      (scrolled)="loadCatFacts()">
+      (scrolled)="loadMoreFacts()">
 
-  @if (catFactsService.isLoading()) {
+  @if (catFactsService.loading) {
     <div class="loading" aria-live="polite">
       <div class="loading-animation">
         <app-icon class="loading-cat" name="cat"/>

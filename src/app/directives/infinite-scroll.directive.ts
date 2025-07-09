@@ -2,7 +2,6 @@ import { Directive, ElementRef, inject, OnDestroy, OnInit, output } from "@angul
 
 @Directive({
   selector: "[appInfiniteScroll]",
-  standalone: true,
 })
 export class InfiniteScrollDirective implements OnInit, OnDestroy {
   private element = inject(ElementRef);
