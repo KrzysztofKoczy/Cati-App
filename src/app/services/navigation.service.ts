@@ -28,7 +28,7 @@ export class NavigationService {
   switchTab(tab: TabType): void {
     this.activeTab.set(tab)
     this.router.navigate([
-      tab === "facts" ? "/dashboard" : "/favorites"
+      tab === "facts" ? "/facts" : "/favorites"
     ])
   }
 
@@ -41,10 +41,10 @@ export class NavigationService {
   }
 
   private updateNavigationState(url: string): void {
-    const shouldShowNav = url.includes("/dashboard") || url.includes("/favorites")
+    const shouldShowNav = url.includes("/facts") || url.includes("/favorites")
     this.showNavigation.set(shouldShowNav)
 
-    if (url.includes("/dashboard")) {
+    if (url.includes("/facts")) {
       this.activeTab.set("facts");
     } else if (url.includes("/favorites")) {
       this.activeTab.set("favorites");

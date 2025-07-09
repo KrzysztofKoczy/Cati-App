@@ -29,7 +29,7 @@ export class AuthenticationService {
       localStorage.setItem("userEmail", username.trim()); // For demo only, not secure for production
 
       // TODO rename to facts view
-      this.router.navigate(["/dashboard"]);
+      this.router.navigate(["/facts"]);
 
       return true;
   }

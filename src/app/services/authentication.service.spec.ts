@@ -39,7 +39,7 @@ describe("AuthenticationService", () => {
     expect(service.isLoggedIn()).toBeTrue();
     expect(localStorage.getItem("isLoggedIn")).toBe("true");
     expect(localStorage.getItem("userEmail")).toBe("test@example.com");
-    expect(routerSpy.navigate).toHaveBeenCalledWith(["/dashboard"]);
+    expect(routerSpy.navigate).toHaveBeenCalledWith(["/facts"]);
   });
 
   it("should logout and clear state, localStorage, and navigate", () => {

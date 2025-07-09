@@ -9,7 +9,7 @@ export const routes: Routes = [
 
   { path: "login", component: LoginPageComponent },
 
-  { path: "dashboard", component: FactsDashboardComponent, canActivate: [AuthGuard] },
+  { path: "facts", component: FactsDashboardComponent, canActivate: [AuthGuard] },
 
   { path: "favorites", component: FavoritesComponent, canActivate: [AuthGuard] },
 

@@ -48,7 +48,7 @@ describe("NavigationService", () => {
     service.switchTab("facts");
 
     expect(service.activeTab()).toBe("facts");
-    expect(routerSpy.navigate).toHaveBeenCalledWith(["/dashboard"]);
+    expect(routerSpy.navigate).toHaveBeenCalledWith(["/facts"]);
   });
 
   it("should switch to favorites tab and navigate", () => {
