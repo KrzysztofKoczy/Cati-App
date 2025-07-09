@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 // TODO add to model
 interface CatFactResponse {
@@ -12,9 +13,7 @@ interface CatFactResponse {
 export class RestService {
   private httpClient = inject(HttpClient);
 
-  constructor() { }
-
-  getCatFacts(): Promise<CatFactResponse | undefined> {
-    return this.httpClient.get<CatFactResponse>('https://meowfacts.herokuapp.com/').toPromise();
+  getCatFacts(): Observable<CatFactResponse> {
+    return this.httpClient.get<CatFactResponse>('https://meowfacts.herokuapp.com/');
   }
 }
