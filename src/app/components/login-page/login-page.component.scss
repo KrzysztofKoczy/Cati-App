@@ -26,9 +26,17 @@
   align-items: center;
   padding-bottom: 24px;
   white-space: nowrap;
-  max-width: 220px;
+  max-width: 240px;
   margin: auto;
   overflow: hidden;
+
+  @media (max-width: 480px) {
+      flex-direction: column;
+  }
+}
+
+.header-icon {
+  width: auto;
 }
 
 .form-group {
