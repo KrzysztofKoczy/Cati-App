@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core"
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { CardComponent } from "../card/card.component";
 import { FavoritesService } from "../../services/favorites.service";
@@ -9,6 +9,7 @@ import { IconComponent } from "../icon/icon.component";
   imports: [CommonModule, CardComponent, IconComponent],
   templateUrl: "./favorites.component.html",
   styleUrls: ["./favorites.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FavoritesComponent {
   favoritesService = inject(FavoritesService);
