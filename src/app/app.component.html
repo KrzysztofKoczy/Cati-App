@@ -1,0 +1,12 @@
+<div class="app-container">
+  @if (navigationService.showNavigation()) {
+    <app-navigation [activeTab]="navigationService.activeTab()"
+                    [factsCount]="navigationService.factsCount()"
+                    (tabChange)="onTabChange($event)"
+                    (logout)="onLogout()"/>
+  }
+
+  <main class="main-content" [class.with-navigation]="navigationService.showNavigation()">
+    <router-outlet></router-outlet>
+  </main>
+</div>
