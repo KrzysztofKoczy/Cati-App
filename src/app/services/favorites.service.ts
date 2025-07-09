@@ -30,12 +30,12 @@ export class FavoritesService {
     this.saveFavoritesToStorage();
   }
 
-  private addToFavorites(fact: string): void {
+  addToFavorites(fact: string): void {
     this.favoritesArray.update(current => [...current, fact]);
     this.saveFavoritesToStorage();
   }
 
-  private removeFromFavorites(fact: string): void {
+  removeFromFavorites(fact: string): void {
     this.favoritesArray.update(current => current.filter(f => f !== fact));
     this.saveFavoritesToStorage();
   }
