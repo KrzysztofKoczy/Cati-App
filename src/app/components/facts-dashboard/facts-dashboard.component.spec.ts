@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { DashboardComponent } from "./dashboard.component";
+import { FactsDashboardComponent } from "./facts-dashboard.component";
 import { CatFactsService } from "../../services/cat-facts.service";
 import { NavigationService } from "../../services/navigation.service";
 import { AuthenticationService } from "../../services/authentication.service";
 import { of } from "rxjs";
 
-describe("DashboardComponent", () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe("FactsDashboardComponent", () => {
+  let component: FactsDashboardComponent;
+  let fixture: ComponentFixture<FactsDashboardComponent>;
   let catFactsServiceSpy: jasmine.SpyObj<CatFactsService>;
   let navigationServiceSpy: jasmine.SpyObj<NavigationService>;
   let authenticationServiceSpy: jasmine.SpyObj<AuthenticationService>;
@@ -18,7 +18,7 @@ describe("DashboardComponent", () => {
     authenticationServiceSpy = jasmine.createSpyObj("AuthenticationService", ["logout"]);
 
     await TestBed.configureTestingModule({
-      imports: [DashboardComponent],
+      imports: [FactsDashboardComponent],
       providers: [
         { provide: CatFactsService, useValue: catFactsServiceSpy },
         { provide: NavigationService, useValue: navigationServiceSpy },
@@ -26,7 +26,7 @@ describe("DashboardComponent", () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(FactsDashboardComponent);
     component = fixture.componentInstance;
   });
 

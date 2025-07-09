@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { InfiniteScrollDirective } from "../../directives/infinite-scroll.directive"
-import { AuthenticationService } from "../../services/authentication.service"
 import { CardComponent } from "../card/card.component"
 import { CatFactsService } from "../../services/cat-facts.service"
 import { IconComponent } from "../icon/icon.component"
@@ -9,16 +8,15 @@ import { Subject, takeUntil } from "rxjs"
 import { NavigationService } from "../../services/navigation.service"
 
 @Component({
-  selector: "app-dashboard",
+  selector: "app--facts-dashboard",
   imports: [CommonModule, CardComponent, InfiniteScrollDirective, IconComponent],
-  templateUrl: "./dashboard.component.html",
-  styleUrls: ["./dashboard.component.scss"],
+  templateUrl: "./facts-dashboard.component.html",
+  styleUrls: ["./facts-dashboard.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardComponent implements OnInit {
+export class FactsDashboardComponent implements OnInit {
   catFactsService = inject(CatFactsService);
   private navigationService = inject(NavigationService);
-  private authenticationService = inject(AuthenticationService);
 
   catFacts = signal<string[]>([]);
   
