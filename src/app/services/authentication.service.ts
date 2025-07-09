@@ -28,7 +28,6 @@ export class AuthenticationService {
       localStorage.setItem("isLoggedIn", "true"); // For demo only, not secure for production
       localStorage.setItem("userEmail", username.trim()); // For demo only, not secure for production
 
-      // TODO rename to facts view
       this.router.navigate(["/facts"]);
 
       return true;

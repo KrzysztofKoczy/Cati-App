@@ -31,7 +31,6 @@ export class FactsDashboardComponent implements OnInit {
   }
 
   loadMoreFacts(): void {
-    console.log('wywołąne load cat facts')
     this.catFactsService.loadCatFacts()
       .pipe(
         takeUntil(this.destroy$)
